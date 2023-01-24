@@ -1,0 +1,81 @@
+server:
+  port: 9090
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    hostname: localhost
+    preferIpAddress: true
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+
+spring:
+  batch:
+    job:
+      enabled: false # because here, we want batch triggered by HTTP endpoint, not scheduled
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password: password
+
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      #  navigate to http://localhost:8080/h2-console
+
+    #profiles:
+    #active: tomcat
+
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 10MB
+
+client:
+  server:
+    origin: "*"
+
+logging:
+  level:
+    root: INFO
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql: TRACE # show values in SQL queries
+
+
+smtp:
+  host: 127.0.0.1
+  port: 25
+  username: username
+  password: password
+  auth: true
+  starttls:
+    enable: true
+  transport:
+    protocol: smtp
+
+uri:
+  jsons: "http://jsonplaceholder.typicode.com"
+
+animal:
+  sound: couac
+
+hello:
+  name: Jun
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
