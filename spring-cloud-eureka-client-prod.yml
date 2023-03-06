@@ -1,5 +1,10 @@
 server:
   port: 9090
+  tomcat:
+    basedir: tomcat
+    accesslog:
+      enabled: true
+      directory: logs
 
 eureka:
   client:
