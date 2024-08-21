@@ -51,6 +51,8 @@ client:
 logging:
   level:
     root: INFO
+    com:
+      alex: DEBUG
     org:
       hibernate:
         SQL: DEBUG
